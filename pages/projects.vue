@@ -278,7 +278,7 @@ const ogTitle = computed(
 
 const description = computed(
   () =>
-    `Search and browse thousands of Minecraft mods on Beehive with instant, accurate search results.`
+    `Search and browse Minecraft mods on Beehive with instant, accurate search results.`
 )
 
 useSeoMeta({

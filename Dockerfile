@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install -g pnpm@8.6.10
+RUN npm install -g pnpm@9.15.1
 RUN pnpm install --frozen-lockfile
 
 ENV NODE_ENV=production

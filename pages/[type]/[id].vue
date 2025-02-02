@@ -228,6 +228,14 @@
             Gallery
           </nuxt-link>
           <nuxt-link
+            v-if="project.blogs.length > 0"
+            :to="`/${project.project_type}/${route.params.id}/blogs`"
+            class="button-base nav-button"
+          >
+            <GalleryIcon />
+            Blogs
+          </nuxt-link>
+          <nuxt-link
             :to="`/${project.project_type}/${route.params.id}/versions`"
             class="button-base nav-button"
           >

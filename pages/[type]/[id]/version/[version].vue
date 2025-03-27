@@ -494,7 +494,7 @@ const getPreviousLink = computed(() => {
   .version-page {
     grid-template:
       'title title' auto
-      'maven metadata' auto
+      'maven maven' auto
       'dependencies metadata' auto
       'files metadata' auto
       'dummy metadata' 1fr

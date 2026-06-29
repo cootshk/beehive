@@ -15,7 +15,7 @@
       />
       <Multiselect
         v-model="plugin"
-        :options="['Fabric Loom', 'NeoGradle', 'Arch Loom', 'ForgeGradle']"
+        :options="['Fabric Loom', 'Fabric Loom (Legacy)', 'NeoGradle', 'Arch Loom', 'ForgeGradle']"
         :searchable="true"
         :show-no-results="false"
         :close-on-select="true"
@@ -68,18 +68,19 @@ const plugin = ref('Fabric Loom');
 const updateTextBox = () => {
   const plug = plugin.value;
   const lang = language.value;
-  const isLoom = plug === 'Fabric Loom' || plug === 'Arch Loom';
-  if (isLoom) {
+  const isLegacyLoom = plug === 'Fabric Loom (Legacy)' || plug === 'Arch Loom';
+  const isModernGradle = plug === 'Fabric Loom' || plug === 'NeoGradle';
+  if (isLegacyLoom) {
     if (lang === 'Groovy') {
       content.value = `modImplementation "${props.group}:${props.artifact}:${props.version}"`;
     } else if (lang === 'Kotlin Script') {
       content.value = `modImplementation(group = "${props.group}", name = "${props.artifact}", version = "${props.version}")`;
     }
-  } else if (plug === 'NeoGradle') {
+  } else if (isModernGradle) {
     if (lang === 'Groovy') {
       content.value = `implementation "${props.group}:${props.artifact}:${props.version}"`;
     } else if (lang === 'Kotlin Script') {
-      content.value = `implementation(group = "${props.group}", name = "${props.artifact}", version = "${props.version}")`;
+      content.value = `implementation("${props.group}:${props.artifact}:${props.version}")`;
     }
   } else if (plug === 'ForgeGradle') {
     if (lang === 'Groovy') {
